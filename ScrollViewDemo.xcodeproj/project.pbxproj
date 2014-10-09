@@ -131,10 +131,7 @@
 				1B930DD519D11846001E4264 /* LWCViewController.h */,
 				1B930DD619D11846001E4264 /* LWCViewController.m */,
 				1B930DD719D11846001E4264 /* LWCViewController.xib */,
-				1B90094E19D2BA070023DB32 /* PageScrollView.h */,
-				1B90094F19D2BA070023DB32 /* PageScrollView.m */,
-				1B90094819D256130023DB32 /* CustomImageView.h */,
-				1B90094919D256130023DB32 /* CustomImageView.m */,
+				1BE67EA619E681810029FF44 /* PageScrollView */,
 				1B930DB819D1161F001E4264 /* Images.xcassets */,
 				1B930DAD19D1161F001E4264 /* Supporting Files */,
 				1B930DDA19D142B1001E4264 /* image */,
@@ -180,6 +177,17 @@
 				1B930DDE19D142B1001E4264 /* 4.png */,
 			);
 			path = image;
+			sourceTree = "<group>";
+		};
+		1BE67EA619E681810029FF44 /* PageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				1B90094E19D2BA070023DB32 /* PageScrollView.h */,
+				1B90094F19D2BA070023DB32 /* PageScrollView.m */,
+				1B90094819D256130023DB32 /* CustomImageView.h */,
+				1B90094919D256130023DB32 /* CustomImageView.m */,
+			);
+			name = PageScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

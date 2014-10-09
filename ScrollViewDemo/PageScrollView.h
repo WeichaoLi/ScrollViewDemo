@@ -7,7 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomImageView.h"
 
-@interface PageScrollView : UIView
+@protocol pageScrollViewDelegate;
+
+@interface PageScrollView : UIView<CustomImageViewDelegate, UIScrollViewDelegate> {
+    UIScrollView *_myScrollView;
+}
+
+//是否自动滚动
+@property BOOL autoScrolled;
+//滚动的间隔时间
+@property (nonatomic) NSUInteger Durations;
+
+@property (nonatomic, retain) NSMutableArray *ImageArray;
+
+@property (nonatomic, retain) CustomImageView *selectImageView;
+@property (nonatomic, assign) NSUInteger selectIndex;
+
+@end
+
+@protocol pageScrollViewDelegate <NSObject>
+
+@required
+
+@optional
 
 @end

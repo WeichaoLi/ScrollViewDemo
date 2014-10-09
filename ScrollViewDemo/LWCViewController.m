@@ -8,6 +8,7 @@
 
 #import "LWCViewController.h"
 #import "CustomImageView.h"
+#import "PageScrollView.h"
 
 @interface LWCViewController ()<CustomImageViewDelegate> {
     UIImageView *checkImageView;
@@ -49,7 +50,6 @@
     
     //是否分页，如果YES，decelerate将在最近的subview那里滚动到最近的边界上停止滚动
     _myScrollView.pagingEnabled = YES;
-    _myScrollView.maximumZoomScale = 0.5f;
     
     for (int i = 0; i <= [_imageNameArray count]; i++) {
         CGRect frame = _myScrollView.frame;
@@ -73,6 +73,10 @@
     }
     
     [self performSelector:@selector(setTimer) withObject:nil afterDelay:0];
+    
+    PageScrollView *pageview = [[PageScrollView alloc] initWithFrame:CGRectMake(40, 350, 200, 200)];
+    pageview.ImageArray = _imageNameArray;
+    [self.view addSubview:pageview];
 }
 
 //设置定时器
