@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B90094A19D256130023DB32 /* CustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B90094919D256130023DB32 /* CustomImageView.m */; };
-		1B90095019D2BA070023DB32 /* PageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B90094F19D2BA070023DB32 /* PageScrollView.m */; };
 		1B930DA719D1161F001E4264 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B930DA619D1161F001E4264 /* Foundation.framework */; };
 		1B930DA919D1161F001E4264 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B930DA819D1161F001E4264 /* CoreGraphics.framework */; };
 		1B930DAB19D1161F001E4264 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B930DAA19D1161F001E4264 /* UIKit.framework */; };
@@ -27,6 +25,9 @@
 		1B930DE019D142B1001E4264 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B930DDC19D142B1001E4264 /* 2.png */; };
 		1B930DE119D142B1001E4264 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B930DDD19D142B1001E4264 /* 3.png */; };
 		1B930DE219D142B1001E4264 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B930DDE19D142B1001E4264 /* 4.png */; };
+		1BA2603F19E8DF2700C60BFD /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA2603E19E8DF2700C60BFD /* 0.png */; };
+		1BAC868919E7A3E800D7B1B9 /* CustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC868619E7A3E800D7B1B9 /* CustomImageView.m */; };
+		1BAC868A19E7A3E800D7B1B9 /* PageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC868819E7A3E800D7B1B9 /* PageScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B90094819D256130023DB32 /* CustomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImageView.h; sourceTree = "<group>"; };
-		1B90094919D256130023DB32 /* CustomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImageView.m; sourceTree = "<group>"; };
-		1B90094E19D2BA070023DB32 /* PageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageScrollView.h; sourceTree = "<group>"; };
-		1B90094F19D2BA070023DB32 /* PageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageScrollView.m; sourceTree = "<group>"; };
 		1B930DA319D1161F001E4264 /* ScrollViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B930DA619D1161F001E4264 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B930DA819D1161F001E4264 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -67,6 +64,12 @@
 		1B930DDC19D142B1001E4264 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		1B930DDD19D142B1001E4264 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		1B930DDE19D142B1001E4264 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		1BA2603E19E8DF2700C60BFD /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
+		1BAC868319E78C5600D7B1B9 /* Debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
+		1BAC868519E7A3E800D7B1B9 /* CustomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImageView.h; sourceTree = "<group>"; };
+		1BAC868619E7A3E800D7B1B9 /* CustomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImageView.m; sourceTree = "<group>"; };
+		1BAC868719E7A3E800D7B1B9 /* PageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageScrollView.h; sourceTree = "<group>"; };
+		1BAC868819E7A3E800D7B1B9 /* PageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +134,8 @@
 				1B930DD519D11846001E4264 /* LWCViewController.h */,
 				1B930DD619D11846001E4264 /* LWCViewController.m */,
 				1B930DD719D11846001E4264 /* LWCViewController.xib */,
-				1BE67EA619E681810029FF44 /* PageScrollView */,
+				1BAC868319E78C5600D7B1B9 /* Debug.h */,
+				1BAC868419E7A3E800D7B1B9 /* PageScrollView */,
 				1B930DB819D1161F001E4264 /* Images.xcassets */,
 				1B930DAD19D1161F001E4264 /* Supporting Files */,
 				1B930DDA19D142B1001E4264 /* image */,
@@ -171,6 +175,7 @@
 		1B930DDA19D142B1001E4264 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				1BA2603E19E8DF2700C60BFD /* 0.png */,
 				1B930DDB19D142B1001E4264 /* 1.png */,
 				1B930DDC19D142B1001E4264 /* 2.png */,
 				1B930DDD19D142B1001E4264 /* 3.png */,
@@ -179,15 +184,15 @@
 			path = image;
 			sourceTree = "<group>";
 		};
-		1BE67EA619E681810029FF44 /* PageScrollView */ = {
+		1BAC868419E7A3E800D7B1B9 /* PageScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				1B90094E19D2BA070023DB32 /* PageScrollView.h */,
-				1B90094F19D2BA070023DB32 /* PageScrollView.m */,
-				1B90094819D256130023DB32 /* CustomImageView.h */,
-				1B90094919D256130023DB32 /* CustomImageView.m */,
+				1BAC868719E7A3E800D7B1B9 /* PageScrollView.h */,
+				1BAC868819E7A3E800D7B1B9 /* PageScrollView.m */,
+				1BAC868519E7A3E800D7B1B9 /* CustomImageView.h */,
+				1BAC868619E7A3E800D7B1B9 /* CustomImageView.m */,
 			);
-			name = PageScrollView;
+			path = PageScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BA2603F19E8DF2700C60BFD /* 0.png in Resources */,
 				1B930DD919D11846001E4264 /* LWCViewController.xib in Resources */,
 				1B930DE219D142B1001E4264 /* 4.png in Resources */,
 				1B930DDF19D142B1001E4264 /* 1.png in Resources */,
@@ -292,10 +298,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B930DB319D1161F001E4264 /* main.m in Sources */,
-				1B90094A19D256130023DB32 /* CustomImageView.m in Sources */,
 				1B930DB719D1161F001E4264 /* LWCAppDelegate.m in Sources */,
 				1B930DD819D11846001E4264 /* LWCViewController.m in Sources */,
-				1B90095019D2BA070023DB32 /* PageScrollView.m in Sources */,
+				1BAC868A19E7A3E800D7B1B9 /* PageScrollView.m in Sources */,
+				1BAC868919E7A3E800D7B1B9 /* CustomImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

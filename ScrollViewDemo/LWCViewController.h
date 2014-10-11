@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PageScrollView.h"
 
-@interface LWCViewController : UIViewController<UIScrollViewDelegate>
+@interface LWCViewController : UIViewController<pageScrollViewDelegate>
 
 @property (retain, nonatomic) NSMutableArray *imageNameArray;
-@property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
 
 @end
