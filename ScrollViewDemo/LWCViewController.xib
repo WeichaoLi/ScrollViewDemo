@@ -18,5 +18,6 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
+        <customObject id="HKl-cx-hGM"/>
     </objects>
 </document>

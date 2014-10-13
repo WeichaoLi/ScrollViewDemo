@@ -12,6 +12,9 @@
 
 @implementation LWCViewController{
     PageScrollView *pageview;
+    UIImageView *checkImage;
+    
+    BOOL canCommitAnimation;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,11 +33,11 @@
     
     self.view.backgroundColor = [UIColor lightGrayColor];
     
-    pageview = [[PageScrollView alloc] initWithFrame:CGRectMake(40, 40, 250, 400)];
+    pageview = [[PageScrollView alloc] initWithFrame:CGRectMake(0, 20, 320, 200)];
     pageview.ImageArray = [NSMutableArray arrayWithObjects:@"0.png", @"1.png", @"2.png", @"3.png", @"4.png", nil];
     pageview.autoScrolled = YES;
     pageview.pageViewDelegate = self;
-    pageview.Durations = 3.f;
+    pageview.Durations = 2.f;
     [self.view addSubview:pageview];
 }
 
@@ -44,10 +47,61 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)didSelectedImage:(CustomImageView *)imageView {
-//    debug_NSLog(@"%@",imageView);
-//    debug_NSLog(@"%d",imageView.tag);
-//    [pageview startScrolling];
+- (void)didSelectedImage:(NSDictionary *)Info {
+//    [pageview setUserInteractionEnabled:NO];
+//    [pageview stopScrolling];
+    
+    [self showTheImageView:[Info objectForKey:@"image"]];
+    
+    debug_NSLog(@"当前页：%@",[Info objectForKey:@"currentpage"]);
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (canCommitAnimation) {
+        [self hiddenTheImageview];
+    }
+    
+//    debug_NSLog(@"%@",self.view.subviews);
+}
+
+#pragma mark -
+
+- (void)hiddenTheImageview {
+    [UIView animateWithDuration:0.5f animations:^() {
+        canCommitAnimation = NO;
+        checkImage.frame = pageview.frame;
+        
+    }completion:^(BOOL finished){
+        canCommitAnimation = YES;
+        
+        [checkImage removeFromSuperview];
+        checkImage = nil;
+        
+        [pageview setUserInteractionEnabled:YES];
+        [pageview startScrolling];
+    }];
+}
+
+- (void)showTheImageView:(UIImage *)image {
+    if (checkImage == nil) {
+        checkImage = [[UIImageView alloc] initWithFrame:pageview.frame];
+        [self.view addSubview:checkImage];
+    }
+    checkImage.image = image;
+    
+    [UIView animateWithDuration:0.8f animations:^() {
+        canCommitAnimation = NO;
+        
+        [pageview setUserInteractionEnabled:NO];
+        [pageview stopScrolling];
+        
+        CGRect frame = pageview.frame;
+        frame.origin.y = 240;
+        checkImage.frame = frame;
+    }completion:^(BOOL finished){
+        
+            canCommitAnimation = YES;
+    }];
 }
 
 @end

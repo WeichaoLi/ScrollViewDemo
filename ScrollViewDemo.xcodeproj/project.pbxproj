@@ -26,6 +26,7 @@
 		1B930DE119D142B1001E4264 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B930DDD19D142B1001E4264 /* 3.png */; };
 		1B930DE219D142B1001E4264 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B930DDE19D142B1001E4264 /* 4.png */; };
 		1BA2603F19E8DF2700C60BFD /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA2603E19E8DF2700C60BFD /* 0.png */; };
+		1BA564DE19EB949F009D715D /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA564DD19EB949F009D715D /* 5.png */; };
 		1BAC868919E7A3E800D7B1B9 /* CustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC868619E7A3E800D7B1B9 /* CustomImageView.m */; };
 		1BAC868A19E7A3E800D7B1B9 /* PageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC868819E7A3E800D7B1B9 /* PageScrollView.m */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		1B930DDD19D142B1001E4264 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		1B930DDE19D142B1001E4264 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 		1BA2603E19E8DF2700C60BFD /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
+		1BA564DD19EB949F009D715D /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
 		1BAC868319E78C5600D7B1B9 /* Debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
 		1BAC868519E7A3E800D7B1B9 /* CustomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImageView.h; sourceTree = "<group>"; };
 		1BAC868619E7A3E800D7B1B9 /* CustomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImageView.m; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				1B930DDC19D142B1001E4264 /* 2.png */,
 				1B930DDD19D142B1001E4264 /* 3.png */,
 				1B930DDE19D142B1001E4264 /* 4.png */,
+				1BA564DD19EB949F009D715D /* 5.png */,
 			);
 			path = image;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				1B930DDF19D142B1001E4264 /* 1.png in Resources */,
 				1B930DE019D142B1001E4264 /* 2.png in Resources */,
 				1B930DE119D142B1001E4264 /* 3.png in Resources */,
+				1BA564DE19EB949F009D715D /* 5.png in Resources */,
 				1B930DB119D1161F001E4264 /* InfoPlist.strings in Resources */,
 				1B930DB919D1161F001E4264 /* Images.xcassets in Resources */,
 			);
