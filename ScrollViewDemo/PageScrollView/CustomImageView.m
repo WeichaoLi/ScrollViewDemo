@@ -30,8 +30,14 @@
     // Drawing code
 }
 */
-
+/*
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if ([_delegate respondsToSelector:@selector(touchTheImageView:)]) {
+        [_delegate touchTheImageView:self];
+    }
+}*/
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if ([_delegate respondsToSelector:@selector(touchTheImageView:)]) {
         [_delegate touchTheImageView:self];
     }
