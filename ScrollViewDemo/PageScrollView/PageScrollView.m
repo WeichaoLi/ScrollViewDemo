@@ -60,16 +60,17 @@
     //加入分页控件
     [self addPageControl];
     
-    _myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WITDTH, VIEW_HEIGHT)];
-    _myScrollView.showsHorizontalScrollIndicator = NO;
-    _myScrollView.pagingEnabled = YES;
-    _myScrollView.decelerationRate = 0.1f;
-    _myScrollView.contentSize = CGSizeMake(VIEW_WITDTH * _totalCount, 0);
-    
-    _myScrollView.delegate = self;
-    [self setContentOffsetToPage:_pageControl.currentPage animated:NO];
-    [self insertSubview:_myScrollView belowSubview:_pageControl];
-
+    if (_myScrollView == nil) {
+        _myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WITDTH, VIEW_HEIGHT)];
+        _myScrollView.showsHorizontalScrollIndicator = NO;
+        _myScrollView.pagingEnabled = YES;
+        _myScrollView.decelerationRate = 0.1f;
+        _myScrollView.contentSize = CGSizeMake(VIEW_WITDTH * _totalCount, 0);
+        
+        _myScrollView.delegate = self;
+        [self setContentOffsetToPage:_pageControl.currentPage animated:NO];
+        [self insertSubview:_myScrollView belowSubview:_pageControl];
+    }
 }
 
 - (void)addsubImageView {
@@ -142,14 +143,16 @@
 }
 
 - (void)addPageControl {
-    _pageControl = [[UIPageControl alloc] init];
-    _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
-    _pageControl.frame = CGRectMake((VIEW_WITDTH - 17*imageCount)/2, VIEW_HEIGHT - 40, 17*imageCount, 20);//指定位置大小
-    _pageControl.numberOfPages = imageCount;//指定页面个数
-    _pageControl.currentPage = 0;//指定pagecontroll的值
-    [_pageControl addTarget:self action:@selector(changePage:)forControlEvents:UIControlEventValueChanged];
-    //添加委托方法，当点击小白点就执行此方法
-    [self insertSubview:_pageControl atIndex:0];
+    if (_pageControl == nil) {
+        _pageControl = [[UIPageControl alloc] init];
+        _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+        _pageControl.frame = CGRectMake((VIEW_WITDTH - 17*imageCount)/2, VIEW_HEIGHT - 40, 17*imageCount, 20);//指定位置大小
+        _pageControl.numberOfPages = imageCount;//指定页面个数
+        _pageControl.currentPage = 0;//指定pagecontroll的值
+        [_pageControl addTarget:self action:@selector(changePage:)forControlEvents:UIControlEventValueChanged];
+        //添加委托方法，当点击小白点就执行此方法
+        [self insertSubview:_pageControl atIndex:0];
+    }
 }
 
 - (void)changePage:(id)sender {
