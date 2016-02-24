@@ -26,6 +26,10 @@
     return self;
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -33,8 +37,8 @@
     
     self.view.backgroundColor = [UIColor lightGrayColor];
     
-    pageview = [[PageScrollView alloc] initWithFrame:CGRectMake(0, 20, 320, 200)];
-    pageview.ImageArray = [NSMutableArray arrayWithObjects:@"0.png", @"1.png", @"2.png", @"3.png", @"4.png", nil];
+    pageview = [[PageScrollView alloc] initWithFrame:CGRectMake(0, 20, 320, 200)
+                                          ImageArray:@[@"0.png", @"1.png", @"2.png", @"3.png", @"4.png"]];
     pageview.autoScrolled = YES;
     pageview.pageViewDelegate = self;
     pageview.Durations = 2.f;

@@ -31,6 +31,32 @@
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame ImageArray:(NSArray *)array {
+    if ([self initWithFrame:frame]) {
+        _ImageArray = [NSArray arrayWithArray:array];
+        imageCount = [_ImageArray count];
+        _totalCount = imageCount + 2;
+        
+        //加入分页控件
+        [self addPageControl];
+        
+        if (_myScrollView == nil) {
+            _myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WITDTH, VIEW_HEIGHT)];
+            _myScrollView.showsHorizontalScrollIndicator = NO;
+            _myScrollView.pagingEnabled = YES;
+            _myScrollView.decelerationRate = 0.1f;
+            _myScrollView.contentSize = CGSizeMake(VIEW_WITDTH * _totalCount, 0);
+            
+            _myScrollView.delegate = self;
+            [self setContentOffsetToPage:_pageControl.currentPage animated:NO];
+            [self insertSubview:_myScrollView belowSubview:_pageControl];
+        }
+        
+        [self addsubImageView];
+    }
+    return self;
+}
+
 - (void)drawRect:(CGRect)rect {
     debug_NSLog(@"draw");
     [[UIColor whiteColor] set];
@@ -52,94 +78,32 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     debug_NSLog(@"layout subviews");
-//    self.backgroundColor = [UIColor whiteColor];
-    
-    imageCount = [_ImageArray count];
-    _totalCount = imageCount + 2;
-    
-    //加入分页控件
-    [self addPageControl];
-    
-    if (_myScrollView == nil) {
-        _myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WITDTH, VIEW_HEIGHT)];
-        _myScrollView.showsHorizontalScrollIndicator = NO;
-        _myScrollView.pagingEnabled = YES;
-        _myScrollView.decelerationRate = 0.1f;
-        _myScrollView.contentSize = CGSizeMake(VIEW_WITDTH * _totalCount, 0);
-        
-        _myScrollView.delegate = self;
-        [self setContentOffsetToPage:_pageControl.currentPage animated:NO];
-        [self insertSubview:_myScrollView belowSubview:_pageControl];
-    }
 }
 
 - (void)addsubImageView {
-//    for (CustomImageView *imageView in _myScrollView.subviews) {
-//        if (imageView.tag >= _pageControl.currentPage && imageView.tag <= (_pageControl.currentPage + 2)) {
-//            continue;
-//        }else {
-////            debug_NSLog(@"当前：%d   ----   clear第 %d 个图片",_pageControl.currentPage ,imageView.tag);
-//            [imageView removeFromSuperview];
-//        }
-//    }
-
-    
-//    debug_NSLog(@"加载图片：%d",_pageControl.currentPage);
-    for (int i = -1; i < 2; i++) {
-        CGRect frame = _myScrollView.frame;
-        frame.origin.x = VIEW_WITDTH * (_pageControl.currentPage + i + 1);
+    for (int i = 0; i < _totalCount; i++) {
+        CGRect frame = CGRectMake(0, 0, VIEW_WITDTH, VIEW_HEIGHT);
+        frame.origin.x = VIEW_WITDTH * i;
         frame.origin.y = 0;
         
         CustomImageView *imageView = [[CustomImageView alloc] initWithFrame:frame];
         imageView.delegate = self;
-        imageView.tag = _pageControl.currentPage + i + 1;
-        
-        NSUInteger index = 0;
-        
-        if (_pageControl.currentPage == [_ImageArray count]-1 && i == 1) {
-            //第一张图 放在最后面
-            index = 0;
-        }else if (_pageControl.currentPage == 0 && i == -1) {
-            //最后一张图 添加到最前面
-            index = imageCount - 1;
-        }else {
-            index = _pageControl.currentPage + i;
-        }
-        if (imageView.image == nil) {
-            imageView.image = [UIImage imageNamed:_ImageArray[index]];
-
-//           #warning -  一定要记得 remove掉 imageview
-//            imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:_ImageArray[index] ofType:nil]];
-        }else {
-            continue;
-        }
         [_myScrollView addSubview:imageView];
+        
+        if (i == 0) {
+            //把最后一张图片放在最前面
+            imageView.tag = _totalCount - 2;
+            imageView.image = [UIImage imageNamed:[_ImageArray lastObject]];
+        }else if (i != _totalCount - 1) {
+            imageView.tag = i;
+            imageView.image = [UIImage imageNamed:_ImageArray[i-1]];
+        }else {
+            //把第一张图片放在最后面
+            imageView.tag = 1;
+            imageView.image = [UIImage imageNamed:_ImageArray[0]];
+        }
     }
-    
- /*
-//    for (int i = 0; i < _totalCount; i++) {
-//        CGRect frame = CGRectMake(0, 0, VIEW_WITDTH, VIEW_HEIGHT);
-//        frame.origin.x = VIEW_WITDTH * i;
-//        frame.origin.y = 0;
-//        
-//        CustomImageView *imageView = [[CustomImageView alloc] initWithFrame:frame];
-//        imageView.delegate = self;
-//        [_myScrollView addSubview:imageView];
-//        
-//        if (i == 0) {
-//            //把最后一张图片放在最前面
-//            imageView.tag = _totalCount - 2;
-//            imageView.image = [UIImage imageNamed:[_ImageArray lastObject]];
-//        }else if (i != _totalCount - 1) {
-//            imageView.tag = i;
-//            imageView.image = [UIImage imageNamed:_ImageArray[i-1]];
-//        }else {
-//            //把第一张图片放在最后面
-//            imageView.tag = 1;
-//            imageView.image = [UIImage imageNamed:_ImageArray[0]];
-//        }
-//    }
-  */
+
 }
 
 - (void)addPageControl {
@@ -165,7 +129,9 @@
 
 //设置定时器
 - (void)setTimer {
-    timer = [NSTimer scheduledTimerWithTimeInterval:_Durations target:self selector:@selector(changeTheImage) userInfo:nil repeats:YES];
+    if (!timer) {
+        timer = [NSTimer scheduledTimerWithTimeInterval:_Durations target:self selector:@selector(changeTheImage) userInfo:nil repeats:YES];
+    }
 }
 
 - (void)changeTheImage {
@@ -204,7 +170,7 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (decelerate) {
         _pageControl.currentPage = scrollView.contentOffset.x / VIEW_WITDTH;
-        [self addsubImageView];
+//        [self addsubImageView];
     }
 }
 
@@ -275,7 +241,7 @@
     }
     [_myScrollView setContentOffset:point animated:animated];
     
-    [self addsubImageView];
+//    [self addsubImageView];
 }
 
 @end

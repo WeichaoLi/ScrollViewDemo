@@ -27,10 +27,12 @@
 //@property BOOL rightCycle; //defualt is YES.
 
 @property (nonatomic) NSUInteger Durations;//The rolling time interval. default is 2.f.
-@property (nonatomic, retain) NSMutableArray *ImageArray; //the array include all image name.
+@property (nonatomic, retain) NSArray *ImageArray; //the array include all image name.
 @property (nonatomic) NSUInteger totalCount;
 @property (nonatomic, retain) CustomImageView *selectImageView;
 @property (nonatomic, assign) NSUInteger currentIndex;
+
+- (id)initWithFrame:(CGRect)frame ImageArray:(NSArray *)array;
 
 - (void)setAllCycle:(BOOL)allCycle;
 //- (void)setLeftCycle:(BOOL)leftCycle;
